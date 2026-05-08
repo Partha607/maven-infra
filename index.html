@@ -1,0 +1,1924 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>Maven Infrastructure Projects Pvt. Ltd. | Website & North East Expansion Strategy</title>
+    <style>
+        /* =========================================
+       VARIABLES & TOKENS (Premium Modernized)
+       ========================================= */
+        :root {
+            --ink: #0f1014;
+            --muted: #6f6658;
+            --cream: #fbf8f1;
+            --stone: #ded0b8;
+            --gold: #b38b47;
+            --gold-light: #e6c88a;
+            --deep: #1a1e1d;
+            --green: #182e27;
+            --green-light: #2c4d42;
+            --card: rgba(255, 255, 255, 0.65);
+            --glass: rgba(255, 255, 255, 0.4);
+            --glass-dark: rgba(24, 46, 39, 0.7);
+            --line: rgba(179, 139, 71, 0.15);
+            --shadow: 0 24px 64px -12px rgba(30, 22, 12, 0.25);
+            --shadow-sm: 0 12px 32px -8px rgba(30, 22, 12, 0.15);
+            --nav-height: 80px;
+        }
+
+        /* =========================================
+       GLOBAL RESET & TYPOGRAPHY
+       ========================================= */
+        * {
+            box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Inter', ui-sans-serif, system-ui, -apple-system, sans-serif;
+            color: var(--ink);
+            background: #f4eee1;
+            min-height: 100dvh;
+            overflow: hidden;
+            /* Hide main scroll, rely on slide scroll */
+            font-smoothing: antialiased;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Sexy Animated Background */
+        .bg-gradient {
+            position: fixed;
+            inset: 0;
+            z-index: -2;
+            background:
+                radial-gradient(circle at 10% 20%, rgba(179, 139, 71, 0.15), transparent 40%),
+                radial-gradient(circle at 90% 80%, rgba(24, 46, 39, 0.12), transparent 40%),
+                linear-gradient(135deg, #fcfaf6 0%, #eee5d3 50%, #d8cbb3 100%);
+            animation: bgPulse 20s ease-in-out infinite alternate;
+        }
+
+        @keyframes bgPulse {
+            0% {
+                transform: scale(1);
+            }
+
+            100% {
+                transform: scale(1.05);
+            }
+        }
+
+        .blueprint {
+            position: fixed;
+            inset: -50%;
+            z-index: -1;
+            pointer-events: none;
+            opacity: 0.35;
+            background-image:
+                linear-gradient(var(--line) 1px, transparent 1px),
+                linear-gradient(90deg, var(--line) 1px, transparent 1px);
+            background-size: 40px 40px;
+            mask-image: radial-gradient(circle at 50% 50%, #000 0%, transparent 60%);
+            -webkit-mask-image: radial-gradient(circle at 50% 50%, #000 0%, transparent 60%);
+            animation: rotateBlueprint 180s linear infinite;
+        }
+
+        @keyframes rotateBlueprint {
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        .ornament {
+            position: fixed;
+            width: 80vw;
+            height: 80vw;
+            max-width: 600px;
+            max-height: 600px;
+            right: -10vw;
+            top: -10vw;
+            z-index: -1;
+            border: 1px solid rgba(179, 139, 71, 0.2);
+            border-radius: 50%;
+            opacity: 0.6;
+            box-shadow: inset 0 0 0 20px rgba(255, 255, 255, 0.1), inset 0 0 0 60px rgba(179, 139, 71, 0.05);
+            pointer-events: none;
+            animation: pulseOrnament 8s ease-in-out infinite alternate;
+        }
+
+        @keyframes pulseOrnament {
+            0% {
+                transform: scale(1) translate(0, 0);
+            }
+
+            100% {
+                transform: scale(1.05) translate(-20px, 20px);
+            }
+        }
+
+        /* Typography Scaling (Mobile First) */
+        h1,
+        h2,
+        h3,
+        p {
+            margin: 0;
+        }
+
+        h1 {
+            font-family: 'Georgia', serif;
+            font-size: clamp(40px, 8vw, 84px);
+            line-height: 1.05;
+            letter-spacing: -0.04em;
+            max-width: 1000px;
+            color: var(--green);
+        }
+
+        h2 {
+            font-family: 'Georgia', serif;
+            font-size: clamp(32px, 6vw, 60px);
+            line-height: 1.1;
+            letter-spacing: -0.03em;
+            max-width: 950px;
+            color: var(--green);
+        }
+
+        h3 {
+            font-size: clamp(18px, 3vw, 22px);
+            letter-spacing: -0.01em;
+            font-weight: 700;
+            color: var(--deep);
+        }
+
+        .kicker {
+            font-size: clamp(11px, 2vw, 13px);
+            letter-spacing: 0.25em;
+            text-transform: uppercase;
+            color: var(--gold);
+            font-weight: 800;
+            margin-bottom: 8px;
+            display: inline-block;
+            background: linear-gradient(90deg, var(--gold), #d4a353);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .lead {
+            font-size: clamp(18px, 3vw, 26px);
+            line-height: 1.4;
+            color: #4a4136;
+            max-width: 860px;
+            margin-top: 16px;
+            font-weight: 400;
+        }
+
+        .body {
+            font-size: clamp(16px, 2.5vw, 19px);
+            line-height: 1.6;
+            color: #5a4f42;
+            max-width: 860px;
+        }
+
+        /* =========================================
+       LAYOUT & SLIDES (Mobile First)
+       ========================================= */
+        .deck {
+            height: 100dvh;
+            width: 100vw;
+            position: relative;
+            perspective: 2000px;
+            overflow: hidden;
+        }
+
+        .slide {
+            position: absolute;
+            inset: 0;
+            padding: env(safe-area-inset-top, 24px) 24px calc(var(--nav-height) + 40px);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            opacity: 0;
+            pointer-events: none;
+            visibility: hidden;
+            overflow-y: auto;
+            overflow-x: hidden;
+            -webkit-overflow-scrolling: touch;
+            will-change: transform, opacity;
+            transform-origin: center center;
+        }
+
+        /* Hide scrollbar for sexy look */
+        .slide::-webkit-scrollbar {
+            display: none;
+        }
+
+        .slide {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+
+        /* The 'Active' state unlocks visibility */
+        .slide.active {
+            opacity: 1;
+            pointer-events: auto;
+            visibility: visible;
+            z-index: 10;
+        }
+
+        /* Keeping the slide visible during Out animation */
+        .slide[class*="anim-out"] {
+            visibility: visible;
+            z-index: 5;
+            pointer-events: none;
+        }
+
+        /* Layout Grids */
+        .center {
+            align-self: center;
+            margin: auto 0;
+            width: 100%;
+        }
+
+        .hero-layout,
+        .split,
+        .grid2,
+        .grid3,
+        .flow {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 24px;
+            width: 100%;
+        }
+
+        /* Desktop Scaling */
+        @media (min-width: 768px) {
+            .slide {
+                padding: 40px 60px calc(var(--nav-height) + 40px);
+            }
+
+            .grid2,
+            .split {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 32px;
+                align-items: center;
+            }
+
+            .grid3 {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 24px;
+            }
+
+            .flow {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 20px;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .slide {
+                padding: 60px 8vw calc(var(--nav-height) + 60px);
+            }
+
+            .hero-layout {
+                grid-template-columns: 1.15fr 0.85fr;
+                gap: 64px;
+                align-items: center;
+            }
+
+            .split {
+                grid-template-columns: 1fr 1fr;
+                gap: 64px;
+            }
+
+            .grid3 {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 32px;
+            }
+
+            .flow {
+                grid-template-columns: repeat(4, 1fr);
+                gap: 24px;
+                margin-top: 32px;
+            }
+        }
+
+        /* =========================================
+       COMPONENTS (Cards, Panels, Tags)
+       ========================================= */
+        .panel {
+            background: var(--glass);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            border: 1px solid rgba(255, 255, 255, 0.6);
+            border-radius: 32px;
+            box-shadow: var(--shadow);
+            padding: clamp(24px, 5vw, 48px);
+            transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.4s ease;
+        }
+
+        .panel:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 32px 72px -16px rgba(30, 22, 12, 0.3);
+        }
+
+        .dark-panel {
+            background: linear-gradient(145deg, var(--deep), var(--green));
+            color: #fff8ec;
+            border-color: rgba(255, 255, 255, 0.1);
+            box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1), var(--shadow);
+        }
+
+        .dark-panel h2,
+        .dark-panel h3,
+        .dark-panel .big-statement {
+            color: #fff !important;
+        }
+
+        .dark-panel p,
+        .dark-panel .muted {
+            color: var(--stone);
+        }
+
+        .card {
+            background: var(--card);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            border-radius: 24px;
+            padding: clamp(24px, 4vw, 32px);
+            box-shadow: var(--shadow-sm);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.4) 0%, transparent 100%);
+            pointer-events: none;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-6px) scale(1.02);
+            box-shadow: var(--shadow);
+            border-color: rgba(179, 139, 71, 0.3);
+        }
+
+        .card:hover::before {
+            opacity: 1;
+        }
+
+        .card strong {
+            display: block;
+            font-size: clamp(20px, 3vw, 24px);
+            margin-bottom: 12px;
+            color: var(--green);
+            font-weight: 800;
+        }
+
+        .card p {
+            font-size: clamp(15px, 2.2vw, 17px);
+            line-height: 1.6;
+            color: var(--muted);
+        }
+
+        .metric {
+            font-family: 'Georgia', serif;
+            font-size: clamp(42px, 6vw, 56px);
+            color: var(--gold);
+            line-height: 1;
+            margin-bottom: 16px;
+            display: inline-block;
+            background: linear-gradient(135deg, var(--gold), var(--gold-light));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .tag {
+            display: inline-flex;
+            gap: 8px;
+            align-items: center;
+            padding: 10px 18px;
+            border-radius: 999px;
+            background: rgba(179, 139, 71, 0.12);
+            border: 1px solid rgba(179, 139, 71, 0.2);
+            color: #7a5624;
+            font-weight: 800;
+            font-size: 13px;
+            letter-spacing: 0.05em;
+            margin: 8px 8px 0 0;
+            text-transform: uppercase;
+            transition: all 0.2s ease;
+        }
+
+        .tag:hover {
+            background: var(--gold);
+            color: #fff;
+            transform: translateY(-2px);
+        }
+
+        .step {
+            position: relative;
+            background: rgba(255, 250, 240, 0.8);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255, 255, 255, 0.8);
+            padding: clamp(24px, 4vw, 32px);
+            border-radius: 28px;
+            box-shadow: var(--shadow-sm);
+            transition: transform 0.3s;
+        }
+
+        .step:hover {
+            transform: translateY(-5px);
+        }
+
+        .step span {
+            display: inline-block;
+            padding: 6px 12px;
+            background: var(--gold);
+            color: #fff;
+            font-size: 11px;
+            font-weight: 900;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            border-radius: 8px;
+            margin-bottom: 12px;
+            box-shadow: 0 4px 12px rgba(179, 139, 71, 0.3);
+        }
+
+        .step h3 {
+            margin: 8px 0;
+            font-size: 22px;
+            color: var(--deep);
+        }
+
+        .step p {
+            font-size: 16px;
+            line-height: 1.5;
+            color: var(--muted);
+        }
+
+        /* Map Aesthetics */
+        .map {
+            height: clamp(300px, 50vw, 480px);
+            position: relative;
+            overflow: hidden;
+            border-radius: 32px;
+            background: rgba(24, 46, 39, 0.03);
+        }
+
+        .map svg {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            filter: drop-shadow(0 20px 30px rgba(24, 46, 39, 0.15));
+        }
+
+        .pin {
+            position: absolute;
+            padding: 8px 16px;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border: 2px solid var(--gold);
+            border-radius: 999px;
+            font-size: 13px;
+            font-weight: 800;
+            color: var(--deep);
+            box-shadow: 0 12px 24px rgba(30, 22, 12, 0.2);
+            transform: translate(-50%, -50%);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            cursor: default;
+        }
+
+        .pin:hover {
+            transform: translate(-50%, -60%) scale(1.1);
+            background: var(--gold);
+            color: #fff;
+            z-index: 10;
+        }
+
+        .pin::after {
+            content: '';
+            position: absolute;
+            bottom: -6px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-width: 6px 6px 0;
+            border-style: solid;
+            border-color: var(--gold) transparent transparent transparent;
+        }
+
+        .pin:hover::after {
+            border-top-color: var(--gold);
+        }
+
+        /* Responsive Pin Positions */
+        .p1 {
+            left: 44%;
+            top: 48%;
+            z-index: 2;
+            background: var(--green);
+            color: white;
+            border-color: var(--green);
+        }
+
+        .p1::after {
+            border-top-color: var(--green);
+        }
+
+        .p2 {
+            left: 58%;
+            top: 34%;
+        }
+
+        .p3 {
+            left: 34%;
+            top: 30%;
+        }
+
+        .p4 {
+            left: 66%;
+            top: 53%;
+        }
+
+        .p5 {
+            left: 51%;
+            top: 66%;
+        }
+
+        .p6 {
+            left: 23%;
+            top: 50%;
+        }
+
+        /* Table Styling */
+        .table-container {
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+            margin: 0 -10px;
+            padding: 0 10px;
+        }
+
+        .table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0 16px;
+            min-width: 400px;
+        }
+
+        .table td {
+            padding: 20px 24px;
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px);
+            font-size: clamp(15px, 2vw, 18px);
+            transition: all 0.2s;
+        }
+
+        .table tr:hover td {
+            background: rgba(255, 255, 255, 0.9);
+            transform: scale(1.01);
+            box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.1);
+        }
+
+        .table td:first-child {
+            border-radius: 20px 0 0 20px;
+            font-weight: 800;
+            color: var(--green);
+            width: 35%;
+        }
+
+        .table td:last-child {
+            border-radius: 0 20px 20px 0;
+            color: #5a4f42;
+            font-weight: 500;
+        }
+
+        .quote {
+            font-family: 'Georgia', serif;
+            font-size: clamp(32px, 5vw, 46px);
+            line-height: 1.2;
+            letter-spacing: -0.02em;
+            color: #fff8ec;
+            text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .big-statement {
+            font-family: 'Georgia', serif;
+            font-size: clamp(36px, 6vw, 72px);
+            line-height: 1.05;
+            letter-spacing: -0.03em;
+        }
+
+        .accent {
+            color: var(--gold-light);
+            background: linear-gradient(90deg, var(--gold-light), #fff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* Architecture Graphic */
+        .architecture {
+            position: relative;
+            min-height: clamp(250px, 40vw, 430px);
+            overflow: hidden;
+            border-radius: 32px;
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .arch-line {
+            position: absolute;
+            border: 1.5px dashed rgba(179, 139, 71, 0.4);
+            border-radius: 24px;
+        }
+
+        .l1 {
+            left: 8%;
+            top: 12%;
+            width: 72%;
+            height: 68%;
+        }
+
+        .l2 {
+            left: 18%;
+            top: 22%;
+            width: 58%;
+            height: 46%;
+            border-style: solid;
+            border-color: rgba(24, 46, 39, 0.2);
+        }
+
+        .l3 {
+            left: 31%;
+            top: 8%;
+            width: 26%;
+            height: 84%;
+            background: rgba(255, 255, 255, 0.3);
+            backdrop-filter: blur(4px);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+        }
+
+        .l4 {
+            left: 5%;
+            top: 48%;
+            width: 82%;
+            height: 1px;
+            border: 0;
+            border-top: 2px solid var(--gold);
+            box-shadow: 0 0 20px var(--gold);
+        }
+
+        .tower {
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: clamp(120px, 20vw, 180px);
+            height: clamp(180px, 30vw, 280px);
+            background: linear-gradient(180deg, var(--green), var(--deep));
+            border-radius: 100px 100px 0 0;
+            box-shadow: 0 -20px 60px rgba(24, 46, 39, 0.4);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-bottom: none;
+            overflow: hidden;
+        }
+
+        .tower:before {
+            content: "";
+            position: absolute;
+            left: 15%;
+            right: 15%;
+            top: 15%;
+            bottom: 0;
+            background: repeating-linear-gradient(90deg, transparent 0 10%, rgba(255, 248, 236, 0.15) 10% 12%), repeating-linear-gradient(0deg, transparent 0 10%, rgba(255, 248, 236, 0.1) 10% 12%);
+            border-radius: 60px 60px 0 0;
+        }
+
+        /* =========================================
+       NAVIGATION (Sexy Floating Dock)
+       ========================================= */
+        .nav {
+            position: fixed;
+            bottom: 24px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            z-index: 100;
+            background: rgba(25, 25, 25, 0.85);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            padding: 12px 16px;
+            border-radius: 999px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3), inset 0 1px 1px rgba(255, 255, 255, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            width: max-content;
+            max-width: 90vw;
+            transition: transform 0.3s;
+        }
+
+        .controls {
+            display: flex;
+            gap: 8px;
+        }
+
+        button {
+            border: 0;
+            border-radius: 999px;
+            padding: 12px 20px;
+            font-weight: 800;
+            font-size: 14px;
+            color: #fff;
+            background: rgba(255, 255, 255, 0.1);
+            cursor: pointer;
+            transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+            outline: none;
+        }
+
+        button:hover,
+        button:active {
+            background: var(--gold);
+            transform: scale(1.05);
+            box-shadow: 0 10px 20px rgba(179, 139, 71, 0.4);
+        }
+
+        .progress-wrapper {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 6px;
+            padding: 0 10px;
+        }
+
+        .counter {
+            font-size: 11px;
+            color: #a0a0a0;
+            font-weight: 800;
+            letter-spacing: 0.15em;
+            font-variant-numeric: tabular-nums;
+        }
+
+        .progress {
+            height: 4px;
+            width: clamp(80px, 15vw, 160px);
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 999px;
+            overflow: hidden;
+        }
+
+        .bar {
+            height: 100%;
+            width: 0%;
+            background: linear-gradient(90deg, var(--gold-light), var(--gold));
+            border-radius: inherit;
+            transition: width 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
+            box-shadow: 0 0 10px var(--gold);
+        }
+
+        /* =========================================
+       INTERNAL STAGGER ANIMATIONS (The Magic)
+       ========================================= */
+        /* When a slide becomes active, its children animate in sequentially */
+        .slide.active>div>*,
+        .slide.active .card,
+        .slide.active .panel,
+        .slide.active .step,
+        .slide.active tr,
+        .slide.active .pin {
+            animation: elementReveal 0.8s cubic-bezier(0.16, 1, 0.3, 1) both;
+        }
+
+        /* Stagger Delays */
+        .slide.active>div>*:nth-child(1) {
+            animation-delay: 0.1s;
+        }
+
+        .slide.active>div>*:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+
+        .slide.active>div>*:nth-child(3) {
+            animation-delay: 0.3s;
+        }
+
+        .slide.active>div>*:nth-child(4) {
+            animation-delay: 0.4s;
+        }
+
+        /* Grid/Flow Children Staggers */
+        .slide.active .grid3 .card:nth-child(1),
+        .slide.active .flow .step:nth-child(1) {
+            animation-delay: 0.3s;
+        }
+
+        .slide.active .grid3 .card:nth-child(2),
+        .slide.active .flow .step:nth-child(2) {
+            animation-delay: 0.4s;
+        }
+
+        .slide.active .grid3 .card:nth-child(3),
+        .slide.active .flow .step:nth-child(3) {
+            animation-delay: 0.5s;
+        }
+
+        .slide.active .grid3 .card:nth-child(4),
+        .slide.active .flow .step:nth-child(4) {
+            animation-delay: 0.6s;
+        }
+
+        .slide.active .grid3 .card:nth-child(5) {
+            animation-delay: 0.7s;
+        }
+
+        .slide.active .grid3 .card:nth-child(6) {
+            animation-delay: 0.8s;
+        }
+
+        /* Table Rows */
+        .slide.active tr:nth-child(1) {
+            animation-delay: 0.3s;
+        }
+
+        .slide.active tr:nth-child(2) {
+            animation-delay: 0.4s;
+        }
+
+        .slide.active tr:nth-child(3) {
+            animation-delay: 0.5s;
+        }
+
+        .slide.active tr:nth-child(4) {
+            animation-delay: 0.6s;
+        }
+
+        /* Map Pins */
+        .slide.active .pin:nth-child(1) {
+            animation-delay: 0.4s;
+        }
+
+        .slide.active .pin:nth-child(2) {
+            animation-delay: 0.5s;
+        }
+
+        .slide.active .pin:nth-child(3) {
+            animation-delay: 0.6s;
+        }
+
+        .slide.active .pin:nth-child(4) {
+            animation-delay: 0.7s;
+        }
+
+        .slide.active .pin:nth-child(5) {
+            animation-delay: 0.8s;
+        }
+
+        .slide.active .pin:nth-child(6) {
+            animation-delay: 0.9s;
+        }
+
+        @keyframes elementReveal {
+            0% {
+                opacity: 0;
+                transform: translateY(30px) scale(0.95);
+                filter: blur(10px);
+            }
+
+            100% {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+                filter: blur(0);
+            }
+        }
+
+        /* =========================================
+       10 UNIQUE SLIDE TRANSITIONS (In & Out)
+       ========================================= */
+        /* Shared animation curve for ultra-premium feel */
+        :root {
+            --ease-sexy: cubic-bezier(0.77, 0, 0.175, 1);
+        }
+
+        /* --- Slide 0: Cinematic Zoom --- */
+        .anim-in-0 {
+            animation: in-zoom 1.2s var(--ease-sexy) both;
+        }
+
+        .anim-out-0 {
+            animation: out-fade-back 1s var(--ease-sexy) both;
+        }
+
+        @keyframes in-zoom {
+            0% {
+                opacity: 0;
+                transform: scale(1.15);
+                filter: blur(20px);
+            }
+
+            100% {
+                opacity: 1;
+                transform: scale(1);
+                filter: blur(0);
+            }
+        }
+
+        @keyframes out-fade-back {
+            100% {
+                opacity: 0;
+                transform: scale(0.9);
+                filter: blur(10px);
+            }
+        }
+
+        /* --- Slide 1: 3D Flip Up --- */
+        .anim-in-1 {
+            animation: in-flip-up 1s var(--ease-sexy) both;
+        }
+
+        .anim-out-1 {
+            animation: out-flip-up 1s var(--ease-sexy) both;
+        }
+
+        @keyframes in-flip-up {
+            0% {
+                opacity: 0;
+                transform: rotateX(-60deg) translateY(100px);
+            }
+
+            100% {
+                opacity: 1;
+                transform: rotateX(0) translateY(0);
+            }
+        }
+
+        @keyframes out-flip-up {
+            100% {
+                opacity: 0;
+                transform: rotateX(60deg) translateY(-100px);
+            }
+        }
+
+        /* --- Slide 2: Skew Slide Right --- */
+        .anim-in-2 {
+            animation: in-skew-right 1s var(--ease-sexy) both;
+        }
+
+        .anim-out-2 {
+            animation: out-skew-left 1s var(--ease-sexy) both;
+        }
+
+        @keyframes in-skew-right {
+            0% {
+                opacity: 0;
+                transform: translateX(100%) skewX(-15deg);
+            }
+
+            100% {
+                opacity: 1;
+                transform: translateX(0) skewX(0);
+            }
+        }
+
+        @keyframes out-skew-left {
+            100% {
+                opacity: 0;
+                transform: translateX(-100%) skewX(15deg);
+            }
+        }
+
+        /* --- Slide 3: Elastic Drop --- */
+        .anim-in-3 {
+            animation: in-drop 1.2s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+        }
+
+        .anim-out-3 {
+            animation: out-drop 0.8s var(--ease-sexy) both;
+        }
+
+        @keyframes in-drop {
+            0% {
+                opacity: 0;
+                transform: translateY(-100%) scale(0.8);
+            }
+
+            100% {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        @keyframes out-drop {
+            100% {
+                opacity: 0;
+                transform: translateY(100%) scale(0.8);
+            }
+        }
+
+        /* --- Slide 4: 3D Door Swing --- */
+        .anim-in-4 {
+            animation: in-door 1.2s var(--ease-sexy) both;
+            transform-origin: left center;
+        }
+
+        .anim-out-4 {
+            animation: out-door 1s var(--ease-sexy) both;
+            transform-origin: right center;
+        }
+
+        @keyframes in-door {
+            0% {
+                opacity: 0;
+                transform: perspective(2000px) rotateY(-90deg) translateZ(-200px);
+            }
+
+            100% {
+                opacity: 1;
+                transform: perspective(2000px) rotateY(0) translateZ(0);
+            }
+        }
+
+        @keyframes out-door {
+            100% {
+                opacity: 0;
+                transform: perspective(2000px) rotateY(90deg) translateZ(-200px);
+            }
+        }
+
+        /* --- Slide 5: Blur Unveil --- */
+        .anim-in-5 {
+            animation: in-blur 1.2s ease-out both;
+        }
+
+        .anim-out-5 {
+            animation: out-blur 1s ease-in both;
+        }
+
+        @keyframes in-blur {
+            0% {
+                opacity: 0;
+                filter: blur(40px) brightness(2);
+                transform: scale(1.05);
+            }
+
+            100% {
+                opacity: 1;
+                filter: blur(0) brightness(1);
+                transform: scale(1);
+            }
+        }
+
+        @keyframes out-blur {
+            100% {
+                opacity: 0;
+                filter: blur(40px) brightness(0.5);
+                transform: scale(0.95);
+            }
+        }
+
+        /* --- Slide 6: Diagonal Slice --- */
+        .anim-in-6 {
+            animation: in-slice 1s var(--ease-sexy) both;
+        }
+
+        .anim-out-6 {
+            animation: out-slice 1s var(--ease-sexy) both;
+        }
+
+        @keyframes in-slice {
+            0% {
+                opacity: 0;
+                transform: translate(50%, 50%) rotate(-5deg);
+            }
+
+            100% {
+                opacity: 1;
+                transform: translate(0, 0) rotate(0);
+            }
+        }
+
+        @keyframes out-slice {
+            100% {
+                opacity: 0;
+                transform: translate(-50%, -50%) rotate(5deg);
+            }
+        }
+
+        /* --- Slide 7: Squeeze & Expand --- */
+        .anim-in-7 {
+            animation: in-squeeze 1s var(--ease-sexy) both;
+        }
+
+        .anim-out-7 {
+            animation: out-squeeze 1s var(--ease-sexy) both;
+        }
+
+        @keyframes in-squeeze {
+            0% {
+                opacity: 0;
+                transform: scaleX(0.2) scaleY(1.5);
+            }
+
+            100% {
+                opacity: 1;
+                transform: scaleX(1) scaleY(1);
+            }
+        }
+
+        @keyframes out-squeeze {
+            100% {
+                opacity: 0;
+                transform: scaleX(1.5) scaleY(0.2);
+            }
+        }
+
+        /* --- Slide 8: Slide Over Overlap --- */
+        .anim-in-8 {
+            animation: in-over 1s var(--ease-sexy) both;
+            z-index: 20;
+        }
+
+        .anim-out-8 {
+            animation: out-under 1s var(--ease-sexy) both;
+            z-index: 5;
+        }
+
+        @keyframes in-over {
+            0% {
+                opacity: 0;
+                transform: translateY(100%);
+                box-shadow: 0 -50px 100px rgba(0, 0, 0, 0.5);
+            }
+
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+                box-shadow: 0 0 0 rgba(0, 0, 0, 0);
+            }
+        }
+
+        @keyframes out-under {
+            100% {
+                opacity: 0;
+                transform: scale(0.85);
+                filter: brightness(0.5);
+            }
+        }
+
+        /* --- Slide 9: Grand Spotlight Final --- */
+        .anim-in-9 {
+            animation: in-spotlight 1.5s var(--ease-sexy) both;
+        }
+
+        .anim-out-9 {
+            animation: out-fade-black 1s ease-in both;
+        }
+
+        @keyframes in-spotlight {
+            0% {
+                opacity: 0;
+                transform: scale(0.9);
+                clip-path: circle(0% at 50% 50%);
+            }
+
+            100% {
+                opacity: 1;
+                transform: scale(1);
+                clip-path: circle(150% at 50% 50%);
+            }
+        }
+
+        @keyframes out-fade-black {
+            100% {
+                opacity: 0;
+                transform: scale(1.1);
+                filter: brightness(0);
+            }
+        }
+
+        /* --- Slide 10: Maven Phase 2 Grand Reveal --- */
+        .anim-in-10 {
+            animation: in-phase2 2s var(--ease-sexy) both;
+        }
+
+        .anim-out-10 {
+            animation: out-fade-black 1s ease-in both;
+        }
+
+        @keyframes in-phase2 {
+            0% {
+                opacity: 0;
+                transform: scale(0.3) rotateY(90deg);
+                filter: blur(30px) brightness(3);
+            }
+
+            40% {
+                opacity: 1;
+                transform: scale(1.08) rotateY(0deg);
+                filter: blur(0) brightness(1.2);
+            }
+
+            70% {
+                transform: scale(0.98);
+                filter: brightness(1);
+            }
+
+            100% {
+                opacity: 1;
+                transform: scale(1);
+                filter: blur(0) brightness(1);
+            }
+        }
+
+        /* Hero Logo in Slide 0 */
+        .hero-logo {
+            height: 1000px;
+            width: auto;
+            max-width: 100%;
+            object-fit: contain;
+            display: block;
+            margin: 0 auto;
+            filter: drop-shadow(0 20px 60px rgba(0, 0, 0, 0.15));
+            animation: heroLogoFloat 6s ease-in-out infinite alternate;
+        }
+
+        @keyframes heroLogoFloat {
+            0% {
+                transform: translateY(0);
+            }
+
+            100% {
+                transform: translateY(-12px);
+            }
+        }
+
+        /* Slide Logo (top-right on slides 1–9) */
+        .slide-logo {
+            position: absolute;
+            top: -80px;
+            right: 24px;
+            height: 400px;
+            width: auto;
+            z-index: 20;
+            pointer-events: none;
+            opacity: 0.12;
+            filter: grayscale(0.2);
+        }
+
+        @media (min-width: 768px) {
+            .slide-logo {
+                top: -80px;
+                right: 40px;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .slide-logo {
+                top: -80px;
+                right: 6vw;
+            }
+        }
+
+        /* Phase 2 Reveal Slide */
+        .phase2-slide {
+            background: linear-gradient(135deg, var(--deep) 0%, #0a1612 50%, var(--green) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .phase2-slide::before {
+            content: '';
+            position: absolute;
+            inset: -50%;
+            background: conic-gradient(from 0deg, transparent 0deg, rgba(179, 139, 71, 0.08) 60deg, transparent 120deg, rgba(179, 139, 71, 0.05) 240deg, transparent 360deg);
+            animation: phase2Rotate 20s linear infinite;
+        }
+
+        .phase2-slide::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at 50% 50%, transparent 30%, rgba(0, 0, 0, 0.4) 100%);
+            pointer-events: none;
+        }
+
+        @keyframes phase2Rotate {
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        .phase2-img-wrapper {
+            position: relative;
+            z-index: 2;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            height: 100%;
+            padding: 40px;
+        }
+
+        .phase2-img {
+            max-width: 90%;
+            max-height: 85vh;
+            object-fit: contain;
+            border-radius: 24px;
+            box-shadow:
+                0 0 60px rgba(179, 139, 71, 0.3),
+                0 0 120px rgba(179, 139, 71, 0.15),
+                0 40px 80px rgba(0, 0, 0, 0.4);
+            border: 2px solid rgba(179, 139, 71, 0.3);
+            animation: phase2ImgGlow 4s ease-in-out infinite alternate;
+        }
+
+        @keyframes phase2ImgGlow {
+            0% {
+                box-shadow:
+                    0 0 60px rgba(179, 139, 71, 0.3),
+                    0 0 120px rgba(179, 139, 71, 0.15),
+                    0 40px 80px rgba(0, 0, 0, 0.4);
+            }
+
+            100% {
+                box-shadow:
+                    0 0 80px rgba(179, 139, 71, 0.5),
+                    0 0 160px rgba(179, 139, 71, 0.25),
+                    0 40px 80px rgba(0, 0, 0, 0.4);
+            }
+        }
+
+        /* Floating particles for phase2 slide */
+        .phase2-particles {
+            position: absolute;
+            inset: 0;
+            z-index: 1;
+            overflow: hidden;
+            pointer-events: none;
+        }
+
+        .phase2-particles span {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: var(--gold-light);
+            border-radius: 50%;
+            animation: particleFloat 8s ease-in-out infinite;
+            opacity: 0;
+        }
+
+        .phase2-particles span:nth-child(1) {
+            left: 10%;
+            top: 20%;
+            animation-delay: 0s;
+            animation-duration: 7s;
+        }
+
+        .phase2-particles span:nth-child(2) {
+            left: 25%;
+            top: 70%;
+            animation-delay: 1s;
+            animation-duration: 9s;
+        }
+
+        .phase2-particles span:nth-child(3) {
+            left: 50%;
+            top: 15%;
+            animation-delay: 2s;
+            animation-duration: 6s;
+        }
+
+        .phase2-particles span:nth-child(4) {
+            left: 70%;
+            top: 80%;
+            animation-delay: 0.5s;
+            animation-duration: 8s;
+        }
+
+        .phase2-particles span:nth-child(5) {
+            left: 85%;
+            top: 30%;
+            animation-delay: 3s;
+            animation-duration: 10s;
+        }
+
+        .phase2-particles span:nth-child(6) {
+            left: 40%;
+            top: 90%;
+            animation-delay: 1.5s;
+            animation-duration: 7.5s;
+        }
+
+        .phase2-particles span:nth-child(7) {
+            left: 15%;
+            top: 50%;
+            animation-delay: 2.5s;
+            animation-duration: 9.5s;
+        }
+
+        .phase2-particles span:nth-child(8) {
+            left: 90%;
+            top: 60%;
+            animation-delay: 0.8s;
+            animation-duration: 6.5s;
+        }
+
+        @keyframes particleFloat {
+
+            0%,
+            100% {
+                opacity: 0;
+                transform: translateY(0) scale(1);
+            }
+
+            25% {
+                opacity: 0.6;
+            }
+
+            50% {
+                opacity: 0.8;
+                transform: translateY(-80px) scale(1.5);
+            }
+
+            75% {
+                opacity: 0.4;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="bg-gradient"></div>
+    <div class="blueprint"></div>
+    <div class="ornament"></div>
+
+    <main class="deck" id="deck">
+
+        <!-- Slide 0 -->
+        <section class="slide">
+            <div class="center">
+                <div>
+                    <div class="kicker">Corporate Website Strategy</div>
+                </div>
+                <div class="hero-layout">
+                    <div>
+                        <h1>Maven Infrastructure Projects Pvt. Ltd.</h1>
+                        <p class="lead">A website is not an online brochure. It is Maven’s corporate identity, market
+                            signal, and expansion engine for Northeast India.</p>
+                        <div style="margin-top:26px">
+                            <span class="tag">Manipur Based</span>
+                            <span class="tag">North East Expansion</span>
+                            <span class="tag">Corporate Positioning</span>
+                        </div>
+                    </div>
+                    <div>
+                        <img src="logo.png" alt="Maven Logo" class="hero-logo">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 1 -->
+        <section class="slide">
+            <img src="logo.png" alt="Maven" class="slide-logo">
+            <div class="center">
+                <div style="margin-bottom: 32px;">
+                    <div class="kicker">The Core Problem</div>
+                    <h2>Without a strong website, Maven may look smaller than it really is.</h2>
+                </div>
+                <div class="grid3">
+                    <div class="card">
+                        <strong>Perception gap</strong>
+                        <p>Even capable infrastructure companies can appear local or informal when their online presence
+                            is weak.</p>
+                    </div>
+                    <div class="card">
+                        <strong>Trust gap</strong>
+                        <p>Large clients, partners, vendors, and institutions check digital presence before taking a
+                            company seriously.</p>
+                    </div>
+                    <div class="card">
+                        <strong>Expansion gap</strong>
+                        <p>If Maven is expanding beyond Manipur, the market must see that ambition clearly and
+                            professionally.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 2 -->
+        <section class="slide">
+            <img src="logo.png" alt="Maven" class="slide-logo">
+            <div class="center">
+                <div style="margin-bottom: 32px;">
+                    <div class="kicker">Strategic Position</div>
+                    <h2>Maven should not be presented as a construction business anymore.</h2>
+                </div>
+                <div class="split">
+                    <div class="dark-panel panel">
+                        <p class="quote">The new message: Maven is a professionally managed infrastructure company
+                            building across Northeast India.</p>
+                    </div>
+                    <div class="panel table-container">
+                        <table class="table">
+                            <tbody>
+                                <tr>
+                                    <td>Old perception</td>
+                                    <td>Local contractor or small business</td>
+                                </tr>
+                                <tr>
+                                    <td>New perception</td>
+                                    <td>Corporate infrastructure company</td>
+                                </tr>
+                                <tr>
+                                    <td>Old proof</td>
+                                    <td>Word of mouth and WhatsApp</td>
+                                </tr>
+                                <tr>
+                                    <td>New proof</td>
+                                    <td>Projects, portfolio, services, leadership and expansion roadmap</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 3 -->
+        <section class="slide">
+            <img src="logo.png" alt="Maven" class="slide-logo">
+            <div class="center">
+                <div style="margin-bottom: 32px;">
+                    <div class="kicker">Why the Website Matters</div>
+                    <h2>The website becomes Maven’s digital head office.</h2>
+                </div>
+                <div class="grid3">
+                    <div class="card">
+                        <div class="metric">01</div>
+                        <strong>Corporate credibility</strong>
+                        <p>It makes Maven look structured, serious, reliable and ready for larger clients.</p>
+                    </div>
+                    <div class="card">
+                        <div class="metric">02</div>
+                        <strong>Expansion signal</strong>
+                        <p>It shows that Maven is growing from Manipur into a wider Northeast market.</p>
+                    </div>
+                    <div class="card">
+                        <div class="metric">03</div>
+                        <strong>Lead generation</strong>
+                        <p>It converts visitors into inquiries from developers, institutions, architects and partners.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 4 -->
+        <section class="slide">
+            <img src="logo.png" alt="Maven" class="slide-logo">
+            <div class="center">
+                <div style="margin-bottom: 32px;">
+                    <div class="kicker">North East Expansion Narrative</div>
+                    <h2>Own the regional infrastructure story before competitors do.</h2>
+                </div>
+                <div class="split">
+                    <div>
+                        <p class="body">Maven has a natural advantage: it is based in Manipur and understands the
+                            region. The website should turn that into a corporate strength.</p>
+                        <div style="margin-top:26px">
+                            <span class="tag">Regional knowledge</span>
+                            <span class="tag">Local trust</span>
+                            <span class="tag">Corporate execution</span>
+                            <span class="tag">Multi-state ambition</span>
+                        </div>
+                    </div>
+                    <div class="panel map">
+                        <svg viewBox="0 0 600 430" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
+                            <path
+                                d="M95 215 C170 90, 385 50, 500 150 C575 215, 515 338, 360 356 C210 376, 35 335,95 215Z"
+                                fill="rgba(24,46,39,.12)" stroke="var(--green)" stroke-width="2"
+                                stroke-dasharray="4 4" />
+                            <path
+                                d="M190 240 C260 150, 395 155, 440 230 C485 305, 390 352, 292 326 C210 304, 150 290,190 240Z"
+                                fill="rgba(179,139,71,.15)" stroke="var(--gold)" stroke-width="2" />
+                        </svg>
+                        <div class="pin p1">Manipur HQ</div>
+                        <div class="pin p2">Assam</div>
+                        <div class="pin p3">Meghalaya</div>
+                        <div class="pin p4">Nagaland</div>
+                        <div class="pin p5">Mizoram</div>
+                        <div class="pin p6">Tripura</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 5 -->
+        <section class="slide">
+            <img src="logo.png" alt="Maven" class="slide-logo">
+            <div class="center">
+                <div style="margin-bottom: 32px;">
+                    <div class="kicker">Recommended Website Sections</div>
+                    <h2>Build a website that proves scale, not just presence.</h2>
+                </div>
+                <div class="grid3">
+                    <div class="card"><strong>Home</strong>
+                        <p>Premium first impression with strong corporate positioning.</p>
+                    </div>
+                    <div class="card"><strong>About Maven</strong>
+                        <p>Company story, leadership vision, values and Northeast mission.</p>
+                    </div>
+                    <div class="card"><strong>Services</strong>
+                        <p>Infrastructure, civil works, construction management, commercial projects and consultancy.
+                        </p>
+                    </div>
+                    <div class="card"><strong>Projects</strong>
+                        <p>Completed and ongoing work with images, scale, location and project category.</p>
+                    </div>
+                    <div class="card"><strong>Expansion</strong>
+                        <p>Dedicated page showing Maven’s growth from Manipur into the Northeast.</p>
+                    </div>
+                    <div class="card"><strong>Careers</strong>
+                        <p>A hiring page makes the company look structured, growing and corporate.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 6 -->
+        <section class="slide">
+            <img src="logo.png" alt="Maven" class="slide-logo">
+            <div class="center">
+                <div style="margin-bottom: 32px;">
+                    <div class="kicker">Marketing Strategy</div>
+                    <h2>Launch the website as a market positioning campaign.</h2>
+                </div>
+                <div class="flow">
+                    <div class="step"><span>Phase 1</span>
+                        <h3>Corporate identity</h3>
+                        <p>Website, logo discipline, company profile, Google Business and project photography.</p>
+                    </div>
+                    <div class="step"><span>Phase 2</span>
+                        <h3>Authority content</h3>
+                        <p>LinkedIn updates, project posts, site progress visuals and leadership messages.</p>
+                    </div>
+                    <div class="step"><span>Phase 3</span>
+                        <h3>Regional SEO</h3>
+                        <p>Rank for infrastructure and construction searches across Manipur and Northeast India.</p>
+                    </div>
+                    <div class="step"><span>Phase 4</span>
+                        <h3>Lead conversion</h3>
+                        <p>Inquiry forms, WhatsApp CTA, project consultation requests and partner contact paths.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 7 -->
+        <section class="slide">
+            <img src="logo.png" alt="Maven" class="slide-logo">
+            <div class="center">
+                <div style="margin-bottom: 32px;">
+                    <div class="kicker">Digital Growth Channels</div>
+                    <h2>Where the website should create business value.</h2>
+                </div>
+                <div class="grid2">
+                    <div class="panel">
+                        <h3>Google Search</h3>
+                        <p class="body" style="margin-top:12px">Target people actively searching for construction and
+                            infrastructure companies in Manipur, Assam and Northeast India.</p>
+                    </div>
+                    <div class="panel">
+                        <h3>LinkedIn</h3>
+                        <p class="body" style="margin-top:12px">Build corporate credibility through project milestones,
+                            hiring posts, expansion updates and leadership communication.</p>
+                    </div>
+                    <div class="panel">
+                        <h3>WhatsApp Conversion</h3>
+                        <p class="body" style="margin-top:12px">Use the website to move serious visitors into direct
+                            conversations with Maven’s business development team.</p>
+                    </div>
+                    <div class="panel">
+                        <h3>Project Portfolio</h3>
+                        <p class="body" style="margin-top:12px">Use completed and ongoing projects as proof that Maven
+                            is capable of larger regional work.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 8 -->
+        <section class="slide">
+            <img src="logo.png" alt="Maven" class="slide-logo">
+            <div class="center">
+                <div style="margin-bottom: 32px;">
+                    <div class="kicker">Expected Business Impact</div>
+                    <h2>A premium website changes how the market treats Maven.</h2>
+                </div>
+                <div class="grid3">
+                    <div class="card"><strong>Bigger-client confidence</strong>
+                        <p>Corporate clients are more likely to speak to a company that looks organized and reliable.
+                        </p>
+                    </div>
+                    <div class="card"><strong>Better tender perception</strong>
+                        <p>A professional digital presence strengthens credibility during formal evaluation.</p>
+                    </div>
+                    <div class="card"><strong>Investor readiness</strong>
+                        <p>Partners and investors understand Maven’s scale, vision and growth direction faster.</p>
+                    </div>
+                    <div class="card"><strong>Talent attraction</strong>
+                        <p>Engineers, managers and staff prefer companies that look stable and ambitious.</p>
+                    </div>
+                    <div class="card"><strong>Regional authority</strong>
+                        <p>Maven can position itself as a Northeast-focused infrastructure company.</p>
+                    </div>
+                    <div class="card"><strong>Sales efficiency</strong>
+                        <p>The website answers basic trust questions before the first meeting.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 9 -->
+        <section class="slide">
+            <img src="logo.png" alt="Maven" class="slide-logo">
+            <div class="center">
+                <div style="margin-bottom: 32px;">
+                    <div class="kicker">Final Recommendation</div>
+                </div>
+                <div class="panel dark-panel" style="padding: clamp(40px, 8vw, 80px);">
+                    <p class="big-statement">Maven’s website should be built as a <span class="accent">corporate
+                            transformation platform</span>, not a simple company profile.</p>
+                    <p class="lead" style="max-width:980px; margin-top:32px; font-weight: 300;">It should prove that
+                        Maven is Manipur-based, professionally managed, expanding across Northeast India, and ready to
+                        operate as a serious infrastructure company.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 10: Maven Phase 2 Reveal -->
+        <section class="slide phase2-slide">
+            <div class="phase2-particles">
+                <span></span><span></span><span></span><span></span>
+                <span></span><span></span><span></span><span></span>
+            </div>
+            <div class="phase2-img-wrapper">
+                <img src="maven-phase-2.png" alt="Maven Phase 2" class="phase2-img">
+            </div>
+        </section>
+
+    </main>
+
+    <nav class="nav">
+        <div class="controls">
+            <button onclick="navigateSlide('prev')" aria-label="Previous Slide">←</button>
+        </div>
+        <div class="progress-wrapper">
+            <div class="counter" id="counter">01 / 10</div>
+            <div class="progress">
+                <div class="bar" id="bar"></div>
+            </div>
+        </div>
+        <div class="controls">
+            <button onclick="navigateSlide('next')" aria-label="Next Slide">→</button>
+        </div>
+    </nav>
+
+    <script>
+        const slides = Array.from(document.querySelectorAll('.slide'));
+        let currentIndex = 0;
+        let isAnimating = false;
+        const animationDuration = 1200; // Matches longest CSS animation duration
+
+        const bar = document.getElementById('bar');
+        const counter = document.getElementById('counter');
+
+        // Initialize first slide
+        function init() {
+            slides[0].classList.add('active', 'anim-in-0');
+            updateUI();
+        }
+
+        function updateUI() {
+            bar.style.width = (((currentIndex + 1) / slides.length) * 100) + '%';
+            counter.textContent = String(currentIndex + 1).padStart(2, '0') + ' / ' + String(slides.length).padStart(2, '0');
+        }
+
+        function navigateSlide(direction) {
+            if (isAnimating) return;
+
+            const prevIndex = currentIndex;
+
+            if (direction === 'next') {
+                currentIndex = (currentIndex + 1) % slides.length;
+            } else {
+                currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+            }
+
+            if (prevIndex === currentIndex) return;
+
+            isAnimating = true;
+
+            // Clean up all slides to baseline
+            slides.forEach((s, i) => {
+                if (i !== prevIndex && i !== currentIndex) {
+                    s.className = 'slide';
+                }
+            });
+
+            const currentSlide = slides[prevIndex];
+            const nextSlide = slides[currentIndex];
+
+            // Reset scroll position of next slide before showing
+            nextSlide.scrollTop = 0;
+
+            // Apply Out animation to current
+            currentSlide.className = `slide anim-out-${prevIndex}`;
+
+            // Apply In animation to next
+            nextSlide.className = `slide active anim-in-${currentIndex}`;
+
+            updateUI();
+
+            // Unlock navigation after animation completes
+            setTimeout(() => {
+                currentSlide.className = 'slide'; // fully hide old slide
+                isAnimating = false;
+            }, animationDuration);
+        }
+
+        // Keyboard controls
+        document.addEventListener('keydown', e => {
+            if (e.key === 'ArrowRight' || e.key === ' ') {
+                e.preventDefault(); // prevent default scrolling for Space
+                navigateSlide('next');
+            }
+            if (e.key === 'ArrowLeft') {
+                navigateSlide('prev');
+            }
+        });
+
+        // Touch swipe controls (Mobile friendly)
+        let startX = 0;
+        let startY = 0;
+
+        document.addEventListener('touchstart', e => {
+            startX = e.touches[0].clientX;
+            startY = e.touches[0].clientY;
+        }, { passive: true });
+
+        document.addEventListener('touchend', e => {
+            const dx = e.changedTouches[0].clientX - startX;
+            const dy = e.changedTouches[0].clientY - startY;
+
+            // Only trigger horizontal swipe if it's dominant over vertical scroll
+            if (Math.abs(dx) > Math.abs(dy) && Math.abs(dx) > 50) {
+                if (dx < 0) {
+                    navigateSlide('next');
+                } else {
+                    navigateSlide('prev');
+                }
+            }
+        });
+
+        // Scroll wheel debounced navigation (Optional, good for desktop presentation feel)
+        let scrollTimeout;
+        document.addEventListener('wheel', e => {
+            // Don't trigger slide change if scrolling inside a long slide on mobile
+            const activeSlide = slides[currentIndex];
+            const isScrollable = activeSlide.scrollHeight > activeSlide.clientHeight;
+
+            if (isScrollable) {
+                // If user is at top and scrolls up, go prev
+                if (activeSlide.scrollTop === 0 && e.deltaY < 0) { }
+                // If user is at bottom and scrolls down, go next
+                else if (Math.abs(activeSlide.scrollHeight - activeSlide.scrollTop - activeSlide.clientHeight) < 1 && e.deltaY > 0) { }
+                else {
+                    return; // Let normal scrolling happen
+                }
+            }
+
+            if (isAnimating) return;
+            clearTimeout(scrollTimeout);
+            scrollTimeout = setTimeout(() => {
+                if (e.deltaY > 30) navigateSlide('next');
+                if (e.deltaY < -30) navigateSlide('prev');
+            }, 50);
+        }, { passive: true });
+
+        // Boot
+        init();
+    </script>
+</body>
+
+</html>
